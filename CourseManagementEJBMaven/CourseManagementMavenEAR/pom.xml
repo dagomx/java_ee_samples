@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dagobravo.course_management.maven</groupId>
+	<artifactId>CourseManagementMavenEAR</artifactId>
+	<version>1.0</version>
+	<packaging>ear</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.dagobravo.course_management.maven</groupId>
+			<artifactId>CourseManagementMavenEJBClient</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dagobravo.course_management.maven</groupId>
+			<artifactId>CourseManagementMavenEJBs</artifactId>
+			<version>1.0</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dagobravo.course_management.maven</groupId>
+			<artifactId>CourseManagementMavenWebApp</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-acr-plugin</artifactId>
+				<version>1.0</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>com.dagobravo.course_management.maven</groupId>
+							<artifactId>CourseManagementMavenWebApp</artifactId>
+						</webModule>
+						<ejbModule>
+							<groupId>com.dagobravo.course_management.maven</groupId>
+							<artifactId>CourseManagementMavenEJBs</artifactId>
+						</ejbModule>
+						<jarModule>
+							<groupId>com.dagobravo.course_management.maven</groupId>
+							<artifactId>CourseManagementMavenEJBClient</artifactId>
+						</jarModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
