@@ -1,4 +1,4 @@
-package com.dagobravo.res.ws;
+package com.dagobravo.rest.ws;
 
 import javax.ws.rs.ApplicationPath;
 
